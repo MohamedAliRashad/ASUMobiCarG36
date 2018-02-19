@@ -1,0 +1,3 @@
+Line Follower Robot (https://www.thingiverse.com/thing:2620714) by APM9874 is licensed under the GNU - GPL license.
+http://creativecommons.org/licenses/GPL/2.0/
+
