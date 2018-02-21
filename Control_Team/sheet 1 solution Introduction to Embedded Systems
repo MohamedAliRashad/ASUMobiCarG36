@@ -1,4 +1,4 @@
-question 1
+Question 1
 ===========
 
 
@@ -18,7 +18,7 @@ void loop()
 
 
 
-question2
+Question2
 ==========
 
 
@@ -43,12 +43,6 @@ void loop()
   }
   
 }
-
-
-
-
-
-
 
 
 
