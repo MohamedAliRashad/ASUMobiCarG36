@@ -1,0 +1,85 @@
+#define Led0 13
+#define Led1 12
+#define Led2 11
+#define Led3 10
+#define Led4 9
+#define Button 2
+
+volatile int x = 0;
+
+void Opposite()
+{
+  
+  x = ( x==0 )? HIGH : LOW ;
+  }
+void setup() {
+  // put your setup code here, to run once:
+  interrupts();
+pinMode(Led0,OUTPUT);
+pinMode(Led1,OUTPUT);
+pinMode(Led2,OUTPUT);
+pinMode(Led3,OUTPUT);
+pinMode(Led4,OUTPUT);
+pinMode(Button,INPUT);
+
+attachInterrupt(0 , Opposite , RISING);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  
+if(x == 0)
+{
+  // On
+  digitalWrite(Led0,HIGH);
+  delay(100);
+  digitalWrite(Led1,HIGH);
+  delay(100);
+  digitalWrite(Led2,HIGH);
+  delay(100);
+  digitalWrite(Led3,HIGH);
+  delay(100);
+  digitalWrite(Led4,HIGH);
+  delay(100);
+  // Off
+  digitalWrite(Led0,LOW);
+  delay(100);
+  digitalWrite(Led1,LOW);
+  delay(100);
+  digitalWrite(Led2,LOW);
+  delay(100);
+  digitalWrite(Led3,LOW);
+  delay(100);
+  digitalWrite(Led4,LOW);
+  delay(100);
+  
+  }
+  else
+  {
+
+  // On
+  digitalWrite(Led4,HIGH);
+  delay(100);
+  digitalWrite(Led3,HIGH);
+  delay(100);
+  digitalWrite(Led2,HIGH);
+  delay(100);
+  digitalWrite(Led1,HIGH);
+  delay(100);
+  digitalWrite(Led0,HIGH);
+  delay(100);
+  // Off
+  digitalWrite(Led4,LOW);
+  delay(100);
+  digitalWrite(Led3,LOW);
+  delay(100);
+  digitalWrite(Led2,LOW);
+  delay(100);
+  digitalWrite(Led1,LOW);
+  delay(100);
+  digitalWrite(Led0,LOW);
+  delay(100);
+
+    }
+    
+}
