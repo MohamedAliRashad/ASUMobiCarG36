@@ -1,0 +1,36 @@
+Question 1 :
+____________
+
+int READ();
+
+void setup() {
+  pinMode(13,OUTPUT);   //LED
+  
+  pinMode(2,INPUT);
+  pinMode(3,INPUT);
+  pinMode(4,INPUT);
+  pinMode(5,INPUT);
+  pinMode(6,INPUT);
+  pinMode(7,INPUT);
+  pinMode(8,INPUT);
+  pinMode(9,INPUT);
+}
+
+void loop() {
+  digitalWrite(13,HIGH);    //HIGH  Duration determined by dip switches
+  delay(READ());
+  digitalWrite(13,LOW);     //LOW  1sec
+  delay(1000);
+}
+
+int READ()
+{
+  int value=0;
+  for(int i=2;i<10;i++)
+  {
+  if(digitalRead(i)==HIGH){value+=2^(i-2);};
+  }
+  return value*4;
+}
+
+
