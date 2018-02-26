@@ -1,0 +1,71 @@
+
+with interrupts
+===================
+int interruptpin1 = 2;
+int interruptpin2 = 3;
+int ledpin = 12;
+int halfduration=500;
+void setup() {
+  
+  pinMode(interruptpin1,INPUT_PULLUP);
+  pinMode(interruptpin2,INPUT_PULLUP);
+  pinMode(ledpin,OUTPUT);
+  attachInterrupt(digitalPinToInterrupt(interruptpin1), hdi, LOW);
+  attachInterrupt(digitalPinToInterrupt(interruptpin2), hde, LOW);
+  
+}
+void loop() {
+digitalWrite(ledpin,HIGH);
+delay(halfduration);
+digitalWrite(ledpin,LOW);
+delay(halfduration);
+
+}
+
+void hdi(){
+  halfduration+=500;
+  if(halfduration>=5000){
+    halfduration=5000;
+  }
+}
+
+void hde(){
+  halfduration-=500;
+  if(halfduration<=500){
+    halfduration=500;
+  }
+}
+
+
+without interrupts
+==================
+
+int inputpin1=2;
+int inputpin2=3;
+int ledpin=12;
+int halfduration=500;
+
+void setup() {
+pinMode(inputpin1,INPUT);
+pinMode(inputpin2,INPUT);
+pinMode(ledpin,OUTPUT);
+}
+
+void loop() {
+
+if(digitalRead(inputpin1)){
+halfduration+=500;
+}
+if(digitalRead(inputpin2)){
+halfduration-=500;
+}
+digitalWrite(ledpin,HIGH);
+delay(halfduration);
+digitalWrite(ledpin,LOW);
+delay(halfduration);
+
+}
+
+
+
+
