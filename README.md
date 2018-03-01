@@ -11,7 +11,7 @@ It only costed us 8 pounds ..... cheap right :)
 
 ## Components
 
-1- 2x motors from like [this](https://store.fut-electronics.com/products/micro-metal-gear-dc-motor-120-rpm)
+1- 2x motors with their kits from [Here](https://store.fut-electronics.com/products/micro-metal-dc-motor-kit-motor-wheel-base)
 
 2- Ball Caster like [this](https://www.robotshop.com/en/pololu-ball-caster-3-8-in-metal-ball.html) 
 
