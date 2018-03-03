@@ -11,13 +11,15 @@ It only costed us 8 pounds ..... cheap right :)
 
 ## Components
 
-1- 2x motors with their kits from [Here](https://store.fut-electronics.com/products/micro-metal-dc-motor-kit-motor-wheel-base)
+1- 2x motors with their kits from [Here](https://store.fut-electronics.com/products/micro-metal-dc-motor-kit-motor-wheel-base) ........................... [Not yet]
 
-2- Ball Caster like [this](https://www.robotshop.com/en/pololu-ball-caster-3-8-in-metal-ball.html) 
+2- Ball Caster like [this](https://www.robotshop.com/en/pololu-ball-caster-3-8-in-metal-ball.html) ........................... [Not yet]
 
-3- Bluetooth Module from [Here](https://store.fut-electronics.com/products/serial-bluetooth-module-master-slave)
+3- Bluetooth Module from [Here](https://store.fut-electronics.com/products/serial-bluetooth-module-master-slave) ........................... [Acquired]
 
-4- Atmega chip (atmega328p was suggested) from [Here](https://store.fut-electronics.com/products/atmega328-microcontroller-with-bootloader-for-uno)
+4- Atmega chip (atmega328p was suggested) from [Here](https://store.fut-electronics.com/products/atmega328-microcontroller-with-bootloader-for-uno) ........................... [Acquired]
+
+5- line follower sensor ........................... [Acquired]
 
 ## Assembling
 
