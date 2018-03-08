@@ -23,4 +23,6 @@ It only costed us 8 pounds ..... cheap right :)
 
 ## Assembling
 
-This will be updated soon ......
+This the phase 1 assembly for the car
+
+![all text](https://github.com/MohamedAliRashad/ASUMobiCarG36/blob/master/Car_V1.jpg)
