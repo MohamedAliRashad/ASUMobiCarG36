@@ -1,0 +1,25 @@
+Parts:
+
+	1- 3x Dc Motors [10]
+	2- Line Follower sensor [165]
+	3- Frame [8]
+
+Extra Spendings:
+
+	Working in the Maker Space [180]
+
+Who Paid:
+	
+	1- MohamedRashad [90]
+	2- 
+	3-
+	4-
+	5-
+	6-
+	7-
+	8-
+	9-
+	10-
+
+
+
