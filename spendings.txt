@@ -4,6 +4,7 @@ Parts:
 	2- Line Follower sensor [165]
 	3- Frame [8]
 	4- 4x battery [10]
+	5- Muhammed Emad . 2 wheels , 2 couplers , and a ball caster [100]
 
 Extra Spendings:
 
@@ -16,8 +17,9 @@ Who Paid:
 	3- Moatasem Mamdouh [125]
 	4- Mahmoud Deghadi [25+35]
 	5- Mostafa Mohsen [35]
-	6-
+	6- 
 	7-
 	8-
 	9-
 	10-
+	
