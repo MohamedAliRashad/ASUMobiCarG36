@@ -1,12 +1,11 @@
-//Written by Mahmoud Gamal Deghadi
-//27 Feb 2018
-//Version 1
+//Written by The Team
+
 
 #include <SoftwareSerial.h>
 SoftwareSerial Bluetooth(A3, A4); // RX, TX
 
-#define M1_pinA 9
-#define M1_pinB 5
+#define M1_pinA 5
+#define M1_pinB 9
 #define M2_pinA 11
 #define M2_pinB 10
 #define Near A5
@@ -26,19 +25,17 @@ void setup()
   pinMode(A2, OUTPUT);
   digitalWrite(A2, HIGH);
   Bluetooth.begin(9600);
-  Serial.begin(9600);
 }
 
 void loop() {
   
   if (Bluetooth.available())//wait for data received
-  { -+
+  { 
     char Data; // the data received
     Bluetooth.print("AT+NAME=Team_36\r\n");
     Data=Bluetooth.read();
     if(digitalRead(Near))
-      Data = 'N';
-    Serial.write(Data);
+      Data = 'S';
     Command(Data);
   }
 }
@@ -47,35 +44,35 @@ void Command(char Comm)
 {
   switch(Comm)
   {  
-  case 'U':    //Upper
-    digitalWrite(M1_pinA,HIGH);
+  case 'F':    //Upper
+    analogWrite(M1_pinA,100);
     digitalWrite(M1_pinB,LOW);
     
-    digitalWrite(M2_pinA,HIGH);
+    analogWrite(M2_pinA,100);
     digitalWrite(M2_pinB,LOW);    
     break;
-  case 'D':    //Down
+  case 'G':    //Down
     digitalWrite(M1_pinA,LOW);
-    digitalWrite(M1_pinB,HIGH);
+    analogWrite(M1_pinB,100);
     
     digitalWrite(M2_pinA,LOW);
-    digitalWrite(M2_pinB,HIGH); 
+    analogWrite(M2_pinB,100); 
     break;
   case 'R':    //Right
     digitalWrite(M1_pinA,LOW);
     digitalWrite(M1_pinB,LOW);
     
-    digitalWrite(M2_pinA,LOW);
-    digitalWrite(M2_pinB,HIGH); 
+    analogWrite(M2_pinA,100);
+    digitalWrite(M2_pinB,LOW); 
     break; 
   case 'L':    //Left
-    digitalWrite(M1_pinA,LOW);
-    digitalWrite(M1_pinB,HIGH);
+    analogWrite(M1_pinA,100);
+    digitalWrite(M1_pinB,LOW);
     
     digitalWrite(M2_pinA,LOW);
     digitalWrite(M2_pinB,LOW); 
     break;     
-  case 'N':
+  case 'S':
     allpinslow();
     break; 
   }
