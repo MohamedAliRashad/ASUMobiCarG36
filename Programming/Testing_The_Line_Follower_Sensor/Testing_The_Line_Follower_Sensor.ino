@@ -61,7 +61,7 @@ void getSensorData()
   RightIn  = digitalRead(SS4_RIGHT_IN); 
   RightOut = digitalRead(SS5_RIGHT_OUT);  
   Bump     = digitalRead(CLP_BUMP);   
-  Near     = digitalRead(NEAR);     
+  Near     = analogRead(NEAR);     
 }  
 
 void showSensorData()
@@ -72,7 +72,7 @@ void showSensorData()
   if (RightIn  == 1) {Serial.print("r ");} else {Serial.print("- ");}  
   if (RightOut == 1) {Serial.print("R ");} else {Serial.print("- ");}  
   if (Bump     == 1) {Serial.print(" BUMP!");} else {Serial.print("      ");} 
-  if (Near     == 1) {Serial.print(" NEAR");}  else {Serial.print("    ");}   
+  if (Near) {Serial.print(Near);}  else {Serial.print("    ");}   
   Serial.println();
 }  
 /* ( THE END ) */

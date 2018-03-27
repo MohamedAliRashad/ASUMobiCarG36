@@ -10,6 +10,7 @@ SoftwareSerial Bluetooth(A3, A4); // RX, TX
 #define M2_pinB 10
 #define Near A5
 
+char Data = 'S'; // the data received
 
 void setup()
 {
@@ -28,16 +29,22 @@ void setup()
 }
 
 void loop() {
-  
-  if (Bluetooth.available())//wait for data received
+
+   if(digitalRead(Near)){
+      Data = 'G';
+      Command(Data);
+      delay(1);
+      allpinslow();
+    }
+    
+   if (Bluetooth.available()) //wait for data received
   { 
-    char Data; // the data received
+
     Bluetooth.print("AT+NAME=Team_36\r\n");
     Data=Bluetooth.read();
-    if(digitalRead(Near))
-      Data = 'S';
     Command(Data);
   }
+  
 }
 
 void Command(char Comm)
