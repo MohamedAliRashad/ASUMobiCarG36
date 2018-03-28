@@ -1,5 +1,6 @@
 # ASUMobiCarG36
 ASU project for a smart car
+To Watch a video for the car click [Here](https://youtu.be/Kc8boilaBuo)
 
 ## Components
 
@@ -22,4 +23,4 @@ The designs are in the Designing Folder
 ![all text](https://github.com/MohamedAliRashad/ASUMobiCarG36/blob/master/Designing/Car_photo.jpg)
 
 ## Programming
-In Progress .....
+we have managed to program the car not only to be controlled by Bluetooth but with obstacle avoidance using IR sensor
