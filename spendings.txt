@@ -5,6 +5,7 @@ Parts:
 	3- Frame [35]
 	4- 6x battery [10]
 	5- 2 wheels , 2 couplers , and a ball caster [100]
+	6- Wires , Header [15]
 
 Extra Spendings:
 
@@ -18,7 +19,7 @@ Who Paid:
 	4- Mahmoud Deghadi [25+35]
 	5- Mostafa Mohsen [35]
 	6- Mohamed Emad [100]
-	7-
+	7- Mohamed Samy [15]
 	8-
 	9-
 	10-
