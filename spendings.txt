@@ -2,7 +2,7 @@ Parts:
 
 	1- 3x Dc Motors [10]
 	2- Line Follower sensor [165]
-	3- Frame [20]
+	3- Frame [35]
 	4- 6x battery [10]
 	5- 2 wheels , 2 couplers , and a ball caster [100]
 
@@ -12,7 +12,7 @@ Extra Spendings:
 
 Who Paid:
 	
-	1- MohamedRashad [112]
+	1- MohamedRashad [127]
 	2- MostafaFekry  [60+60+12]
 	3- Moatasem Mamdouh [125]
 	4- Mahmoud Deghadi [25+35]
