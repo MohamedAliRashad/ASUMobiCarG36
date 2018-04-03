@@ -1,7 +1,7 @@
 //Written by The Team
 
-
 #include <SoftwareSerial.h>
+
 SoftwareSerial Bluetooth(A3, A4); // RX, TX
 
 #define M1_pinA 5
@@ -52,28 +52,28 @@ void Command(char Comm)
   switch(Comm)
   {  
   case 'F':    //Upper
-    analogWrite(M1_pinA,100);
+    analogWrite(M1_pinA,127);
     digitalWrite(M1_pinB,LOW);
     
-    analogWrite(M2_pinA,100);
+    analogWrite(M2_pinA,127);
     digitalWrite(M2_pinB,LOW);    
     break;
   case 'G':    //Down
     digitalWrite(M1_pinA,LOW);
-    analogWrite(M1_pinB,100);
+    analogWrite(M1_pinB,127);
     
     digitalWrite(M2_pinA,LOW);
-    analogWrite(M2_pinB,100); 
+    analogWrite(M2_pinB,127); 
     break;
-  case 'R':    //Right
+    case 'R':    //Right
     digitalWrite(M1_pinA,LOW);
     digitalWrite(M1_pinB,LOW);
     
-    analogWrite(M2_pinA,100);
+    analogWrite(M2_pinA,127);
     digitalWrite(M2_pinB,LOW); 
     break; 
   case 'L':    //Left
-    analogWrite(M1_pinA,100);
+    analogWrite(M1_pinA,127);
     digitalWrite(M1_pinB,LOW);
     
     digitalWrite(M2_pinA,LOW);

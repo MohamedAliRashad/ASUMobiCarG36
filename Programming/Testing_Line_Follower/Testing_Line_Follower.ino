@@ -14,11 +14,11 @@
 //#define RIGHT_ZERO_TRIM 2;  
 
 /*-(Connections to NewWay 7-Way Robot Line Follower Sensor)-*/
-#define SS1_LEFT_OUT  A5   
-#define SS2_LEFT_IN   A4
+#define SS1_LEFT_OUT  A1 
+#define SS2_LEFT_IN   A2
 #define SS3_CENTER    A3
 #define CLP_BUMP      11
-#define SS4_RIGHT_IN  A2
+#define SS4_RIGHT_IN  A4
 #define SS5_RIGHT_OUT A1  // Don't use pin 13 as an input..
 
 #define NEAR          A0 // Used as digital, probably
@@ -55,25 +55,24 @@ void loop()   /*----( LOOP: RUNS CONSTANTLY )----*/
 
 void getSensorData()
 {
-  LeftOut  = analogRead(SS1_LEFT_OUT);  
-  LeftIn   = analogRead(SS2_LEFT_IN);  
-  Center   = analogRead(SS3_CENTER);  
-  RightIn  = analogRead(SS4_RIGHT_IN); 
-  RightOut = analogRead(SS5_RIGHT_OUT);  
+  LeftOut  = digitalRead(SS1_LEFT_OUT);  
+  LeftIn   = digitalRead(SS2_LEFT_IN);  
+  Center   = digitalRead(SS3_CENTER);  
+  RightIn  = digitalRead(SS4_RIGHT_IN); 
+  RightOut = digitalRead(SS5_RIGHT_OUT);  
   Bump     = digitalRead(CLP_BUMP);   
-  Near     = analogRead(NEAR);     
+  Near     = digitalRead(NEAR);     
 }  
 
 void showSensorData()
 {
-  Serial.print("L: ");Serial.println(LeftOut); 
-  Serial.print("l: ");Serial.println(LeftIn);
-  Serial.print("C: ");Serial.println(Center);
-  Serial.print("r: ");Serial.println(RightIn);  
-  Serial.print("R: ");Serial.println(RightOut); 
-  //if (Bump     == 1) {Serial.print(" BUMP!");} else {Serial.print("      ");} 
-  //if (Near) {Serial.print(Near);}  else {Serial.print("    ");}   
+  if (LeftOut  == 1) {Serial.print("L ");} else {Serial.print("- ");} 
+  if (LeftIn   == 1) {Serial.print("l ");} else {Serial.print("- ");}
+  if (Center   == 1) {Serial.print("C ");} else {Serial.print("- ");}
+  if (RightIn  == 1) {Serial.print("r ");} else {Serial.print("- ");}  
+  if (RightOut == 1) {Serial.print("R ");} else {Serial.print("- ");}  
+  if (Bump     == 1) {Serial.print(" BUMP!");} else {Serial.print("      ");} 
+  if (Near == 1) {Serial.print("Near!");}  else {Serial.print("    ");}   
   Serial.println();
 }  
 /* ( THE END ) */
-
