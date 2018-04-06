@@ -4,6 +4,7 @@
 
 SoftwareSerial Bluetooth(A3, A4); // RX, TX
 
+#define MaxSpeed 127
 #define M1_pinA 5
 #define M1_pinB 9
 #define M2_pinA 11
@@ -33,14 +34,11 @@ void loop() {
    if(digitalRead(Near)){
       Data = 'G';
       Command(Data);
-      delay(1);
-      allpinslow();
+      break;
     }
     
    if (Bluetooth.available()) //wait for data received
   { 
-
-    Bluetooth.print("AT+NAME=Team_36\r\n");
     Data=Bluetooth.read();
     Command(Data);
   }
@@ -52,28 +50,28 @@ void Command(char Comm)
   switch(Comm)
   {  
   case 'F':    //Upper
-    analogWrite(M1_pinA,127);
+    analogWrite(M1_pinA,MaxSpeed);
     digitalWrite(M1_pinB,LOW);
     
-    analogWrite(M2_pinA,127);
+    analogWrite(M2_pinA,MaxSpeed);
     digitalWrite(M2_pinB,LOW);    
     break;
   case 'G':    //Down
     digitalWrite(M1_pinA,LOW);
-    analogWrite(M1_pinB,127);
+    analogWrite(M1_pinB,MaxSpeed);
     
     digitalWrite(M2_pinA,LOW);
-    analogWrite(M2_pinB,127); 
+    analogWrite(M2_pinB,MaxSpeed); 
     break;
     case 'R':    //Right
     digitalWrite(M1_pinA,LOW);
     digitalWrite(M1_pinB,LOW);
     
-    analogWrite(M2_pinA,127);
+    analogWrite(M2_pinA,MaxSpeed);
     digitalWrite(M2_pinB,LOW); 
     break; 
   case 'L':    //Left
-    analogWrite(M1_pinA,127);
+    analogWrite(M1_pinA,MaxSpeed);
     digitalWrite(M1_pinB,LOW);
     
     digitalWrite(M2_pinA,LOW);
