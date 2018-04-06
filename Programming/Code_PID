@@ -1,0 +1,9 @@
+float error,last error;
+int AddedMotorSpeed,RightMotorSpeed,LeftMotorSpeed; // variable speeds due to error 
+float Kp,Ki,Kd; 
+int NoErrorRightSpeed,NoErrorLeftSpeed;
+int AddedMotorSpeed = Kp * error + Kd * (error - lastError)+Ki*(error+last error);
+last error=error;
+RightMotorSpeed=NoErrorRightSpeed+AddedMotorSpeed;
+LeftMotorSpeed=NoErrorLeftSpeed+AddedMotorSpeed;
+// THe Signs + or - in the previous Formulas will get adjusted to suit the error sign when caculated . 
