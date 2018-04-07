@@ -34,7 +34,7 @@ void loop() {
    if(digitalRead(Near)){
       Data = 'G';
       Command(Data);
-      break;
+      continue;
     }
     
    if (Bluetooth.available()) //wait for data received
@@ -48,21 +48,34 @@ void loop() {
 void Command(char Comm)
 {
   switch(Comm)
-  {  
-  case 'F':    //Upper
+  { 
+
+    case "M":
+    while(1){
+      
+      if(Bluetooth.read() == "m"){
+        break;
+      }
+      
+    }
+    break;
+
+    case 'F':    //Upper
     analogWrite(M1_pinA,MaxSpeed);
     digitalWrite(M1_pinB,LOW);
     
     analogWrite(M2_pinA,MaxSpeed);
     digitalWrite(M2_pinB,LOW);    
     break;
-  case 'G':    //Down
+
+    case 'G':    //Down
     digitalWrite(M1_pinA,LOW);
     analogWrite(M1_pinB,MaxSpeed);
     
     digitalWrite(M2_pinA,LOW);
     analogWrite(M2_pinB,MaxSpeed); 
     break;
+    
     case 'R':    //Right
     digitalWrite(M1_pinA,LOW);
     digitalWrite(M1_pinB,LOW);
@@ -70,14 +83,16 @@ void Command(char Comm)
     analogWrite(M2_pinA,MaxSpeed);
     digitalWrite(M2_pinB,LOW); 
     break; 
-  case 'L':    //Left
+    
+    case 'L':    //Left
     analogWrite(M1_pinA,MaxSpeed);
     digitalWrite(M1_pinB,LOW);
     
     digitalWrite(M2_pinA,LOW);
     digitalWrite(M2_pinB,LOW); 
     break;     
-  case 'S':
+    
+    case 'S':
     allpinslow();
     break; 
   }
