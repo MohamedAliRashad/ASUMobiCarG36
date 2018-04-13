@@ -16,7 +16,7 @@ Who Paid:
 	1- MohamedRashad [127]
 	2- MostafaFekry  [60+60+12]
 	3- Moatasem Mamdouh [125]
-	4- Mahmoud Deghadi [25+35]
+	4- Mahmoud Deghadi [25+35+20(H Bridge)+4.5(Female)] + PCB as whole + atmega  
 	5- Mostafa Mohsen [43]
 	6- Mohamed Emad [100]
 	7- Mohamed Samy [15]
