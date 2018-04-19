@@ -6,14 +6,15 @@ Parts:
 	4- 11x battery [10]
 	5- 2 wheels , 2 couplers , and a ball caster [100]
 	6- Wires , Header ,double tape [23]
-
+	7- Atmega328 [50]
+	
 Extra Spendings:
 
 	Working in the Maker Space [180]
 
 Who Paid:
 	
-	1- MohamedRashad [127]
+	1- MohamedRashad [127 + 50]
 	2- MostafaFekry  [60+110+12+ 1 battery holder x2 (13)+ hs (5)]
 	3- Moatasem Mamdouh [125]
 	4- Mahmoud Deghadi [25+35+20(H Bridge)+4.5(Female)] + PCB as whole + atmega  + 3*2 Buttery socket (15*2)"free"
