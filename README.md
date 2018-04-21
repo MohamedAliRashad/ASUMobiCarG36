@@ -19,9 +19,16 @@ To Watch a video for the car click [Here](https://youtu.be/Kc8boilaBuo)
 
 **The Finished Car will look like this**
 we have made a whole new Design for the Line Follower Competition and it looked like this.
-The designs are in the Designing Folder
+The designs and edits are in the Designing Folder
 
 ![all text](https://github.com/MohamedAliRashad/ASUMobiCarG36/blob/master/Designing/Car_photo.jpg)
 
 ## Programming
 we have managed to program the car not only to be controlled by Bluetooth but with obstacle avoidance using IR sensor
+
+## Line Following (Phase 2)
+The Car Finished the proposed track as intended but with low speed which we are trying to improve right now.
+
+To watch the Car in the line following Mode Click [Here](https://www.youtube.com/watch?v=1ZHcCvf_tag&feature=youtu.be)
+
+![all text](https://github.com/MohamedAliRashad/ASUMobiCarG36/blob/master/Track.png)
