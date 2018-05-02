@@ -17,7 +17,7 @@ Who Paid:
 	1- MohamedRashad [127 + 50]
 	2- MostafaFekry  [60+110+12+ 1 battery holder x2 (13)+ hs (5)]
 	3- Moatasem Mamdouh [125]
-	4- Mahmoud Deghadi [25+35+20(H Bridge)+4.5(Female)] + PCB as whole + atmega  + 3*2 Buttery socket (15*2)"free"
+	4- Mahmoud Deghadi [25+35+20(H Bridge)+4.5(Female)] + PCB as whole + atmega  + 3*2 Buttery socket (15*2)"free" + 50 Atmega
 	5- Mostafa Mohsen [43]
 	6- Mohamed Emad [100]
 	7- Mohamed Samy [15]
