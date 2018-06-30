@@ -21,8 +21,8 @@ Who Paid:
 	5- Mostafa Mohsen [43]
 	6- Mohamed Emad [100]
 	7- Mohamed Samy [15]
-	8-
+	8- Mostafa Badawy [210 (auto calibrated line following sensor)+ 25]
 	9-
 	10-
 
-Total: 1029.5
+Total: 1264.5
