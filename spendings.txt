@@ -14,7 +14,7 @@ Extra Spendings:
 
 Who Paid:
 	
-	1- MohamedRashad [127 + 50 + 70 + 80 + 45 + 10]
+	1- MohamedRashad [127 + 50 + 70 + 80 + 45 + 10 + 25]
 	2- MostafaFekry  [60+110+12+ 1 battery holder x2 (13)+ hs (5)]
 	3- Moatasem Mamdouh [125]
 	4- Mahmoud Deghadi [25+35+20(H Bridge)+4.5(Female)] + PCB as whole + atmega  + 3*2 Buttery socket (15*2)"free" + 50 Atmega
@@ -25,4 +25,4 @@ Who Paid:
 	9-
 	10-
 
-Total: 1264.5
+Total: 1289.5
