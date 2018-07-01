@@ -31,8 +31,8 @@ while (true)
   void set_angle(float theta , char z)
   {
   /*
-  float L = 0.5 * wheel_axis * theta ;  // Delta L  lenght of arc which the car move when its angel changes.
-  float no_inter= (L/circum_wheel)*gear_teeth ;
+  float L = 0.5 * wheel_axis * theta ;      // Delta L  length of arc which the car move when its angel changes(L= r*theta).
+  float no_inter= (L/circum_wheel)*gear_teeth ;   // number of inter
   switch(z)
  {
 case:'L': Left();break;                 //<=== using car functions for move for angle clockwise or anti-clockwise
