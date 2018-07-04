@@ -12,12 +12,14 @@ void loop ()
 
 }
 void move_dist(float x,char y)
-{float no_inter= (x/circum_wheel)*gear_teeth;
+{
+  float no_inter= (x/circum_wheel)*gear_teeth;
 switch(y)
  {
 case:'B': backward();break;                 //<=== using car functions for move
 default: forward();break;
- }int k=0;
+ }
+ int k=0;
 while (true)
   {
     if(digitalRead(photo_out)==1)    //let func is always high unless stop is called
