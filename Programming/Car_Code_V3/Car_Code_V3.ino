@@ -1,12 +1,11 @@
-#include <PID_v1.h>
+//#include <PID_v1.h>
 #include <SoftwareSerial.h>
 
 SoftwareSerial Bluetooth(A3, A2); // RX, TX
 
 #define radiusOfCar 8 // Half the width of the car
 #define circumference 20.41 //in CM
-#define pi 3.1416
-#define MaxSpeed 127
+#define PI 3.1415926535897932384626433832795
 #define ML_pinA 9
 #define ML_pinB 10
 #define MR_pinA 11
@@ -32,6 +31,7 @@ void Left(int Speed);
 char Data = 'S'; // the data received
 unsigned int counterR=0;
 unsigned int counterL=0;
+unsigned int MaxSpeed = 127;
 //char weights[5] = {0,-50,0,50,0};
 //PID CarPID(&Input, &Output, &SetPoint,3,0,0,DIRECT);
 
@@ -62,8 +62,8 @@ void setup()
   //CarPID.SetOutputLimits(-20, 20);
 
   //Install Bluetooth
-  pinMode(A2, OUTPUT);
-  digitalWrite(A2, HIGH);
+  pinMode(A1, OUTPUT);
+  digitalWrite(A1, HIGH);
   Bluetooth.begin(9600);
 }
 
@@ -125,43 +125,73 @@ void Command(char Comm)
 
     break;
 
-    case 'f':
+    case 'f':    //Forward Automatic
 
     MoveFDist(GetData);
 
     break;
 
-    case 'b':
+    case 'b':    //Backward Automatic
 
     MoveBDist(GetData);
 
     break;
 
-    case 'a':
+    case 'a':    //Angle Automatic
 
     MoveAngle(GetData);
 
     break;
-    
-    case 'F':    //Upper
 
+    case 's':    //Change Speed
+
+    MaxSpeed = GetData();
+
+    break;
+
+    case 'q':    //Move square
+
+    MoSquare(GetData);
+
+    break;
+
+    case 'r':    //Move Circle To the right
+
+    MoRCircle(GetData);
+
+    break;
+
+    case 'l':    //Move Circle To the left
+
+    MoLCircle(GetData);
+
+    break;
+
+    case 'i':    //Move Infinity Shape
+
+    MoInfinity(GetData);
+
+    break;
+
+    case 'F':    //Forward Manual
+ 
     Forward(MaxSpeed);
 
     break;
 
-    case 'G':    //Down
+    case 'B':    //Backward Manual
   
     Backward(MaxSpeed);
 
     break;
     
-    case 'R':    //Right
+    case 'R':    //Right Manual
     
     Right(MaxSpeed);
 
     break; 
     
-    case 'L':    //Left
+    case 'L':    //Left Manual
   
     Left(MaxSpeed);
 
@@ -221,6 +251,48 @@ void Right(int Speed) {
 
 }
 
+void RightAround(int SpeedL, int SpeedR, int Direction) {
+
+  if (Direction){
+  analogWrite(ML_pinA, SpeedL);
+  digitalWrite(ML_pinB, LOW);
+
+  digitalWrite(MR_pinA, LOW);
+  analogWrite(MR_pinB, SpeedR);
+  }
+
+  else{
+  analogWrite(ML_pinA, SpeedL);
+  digitalWrite(ML_pinB, LOW);
+
+  digitalWrite(MR_pinB, LOW);
+  analogWrite(MR_pinA, SpeedR);
+  
+  }
+
+}
+
+void LeftAround(int SpeedL, int SpeedR, int Direction) {
+
+  if (Direction){
+  digitalWrite(ML_pinA, LOW);
+  analogWrite(ML_pinB, SpeedL);
+
+  analogWrite(MR_pinA, SpeedR);
+  digitalWrite(MR_pinB, LOW);
+  }
+  else{
+  digitalWrite(ML_pinA, LOW);
+  analogWrite(ML_pinB, SpeedL);
+
+  analogWrite(MR_pinB, SpeedR);
+  digitalWrite(MR_pinA, LOW);
+    
+  }
+}
+
+
+
 int GetData(){
 
   int Output = 0;
@@ -248,7 +320,7 @@ int GetData(){
   return Output;
 }
 
-void MoveFDist(float x){
+void MoveFDist(int x){
 
   int NoInter = (x/circumference) * 12;          // Transforming 
 
@@ -260,6 +332,9 @@ void MoveFDist(float x){
     Forward(MaxSpeed);
   }
 
+  counterR = 0;
+  counterL = 0;
+  
   detachInterrupt(EncR);
   //detachInterrupt(EncL);
 
@@ -267,7 +342,7 @@ void MoveFDist(float x){
 }
 
 
-void MoveBDist(float x){
+void MoveBDist(int x){
 
   int NoInter = (x/circumference) * 12;          // Transforming 
 
@@ -279,6 +354,9 @@ void MoveBDist(float x){
     Backward(MaxSpeed);
   }
 
+  counterR = 0;
+  counterL = 0;
+  
   detachInterrupt(EncR);
   //detachInterrupt(EncL);
 
@@ -290,14 +368,14 @@ void docountR()  // counts from the speed sensor
   counterR++;  // increase +1 the counter value
 } 
 
-//void docountL()  // counts from the speed sensor
-//{
-//  counterL++;  // increase +1 the counter value
-//} 
+void docountL()  // counts from the speed sensor
+{
+  counterL++;  // increase +1 the counter value
+} 
 
-void MoveAngle(float y){
+void MoveAngle(int y){
  
-  int NoInter = ((y * pi/180) * radiusOfCar /circumference) * 12;
+  int NoInter = ((y * PI/180) * radiusOfCar /circumference) * 12;
 
   attachInterrupt(digitalPinToInterrupt(EncR), docountR, RISING);
   //attachInterrupt(digitalPinToInterrupt(EncL), docountL, RISING);
@@ -307,8 +385,158 @@ void MoveAngle(float y){
     Right(MaxSpeed);
   }
 
+  counterR = 0;
+  counterL = 0;
+  
   detachInterrupt(EncR);
   //detachInterrupt(EncL);
   
   allpinslow();
+}
+
+void MoSquare(int side){
+
+  MoveFDist(side);
+  MoveAngle(90);
+  MoveFDist(side);
+  MoveAngle(90);
+  MoveFDist(side);
+  MoveAngle(90);
+  MoveFDist(side);
+  MoveAngle(90);
+  
+}
+
+void MoRCircle(int Radius){
+
+  int NoInter;
+
+  if (Radius == 8){
+
+      NoInter = (2 * PI * 16 / circumference ) * 12;
+      attachInterrupt(digitalPinToInterrupt(EncL), docountL, RISING);
+
+      while (counterL < NoInter){
+        RightAround(255, 0, 0);
+      
+  }
+
+      counterR = 0;
+      counterL = 0;
+  
+      detachInterrupt(EncL);
+      
+      allpinslow();
+ 
+  
+  }
+
+  else if (Radius < 8){
+    
+    NoInter = (2 * PI * (8 + Radius) / circumference ) * 12;
+      attachInterrupt(digitalPinToInterrupt(EncL), docountL, RISING);
+
+      while (counterL < NoInter){
+        RightAround(255, (((8 - Radius) / (8 + Radius)) * 255), 1);
+      
+  }
+
+      counterR = 0;
+      counterL = 0;
+  
+      detachInterrupt(EncL);
+      
+      allpinslow();
+ 
+  
+  }else{
+
+        NoInter = (2 * PI * (16 + Radius) / circumference ) * 12;
+      attachInterrupt(digitalPinToInterrupt(EncL), docountL, RISING);
+
+      while (counterL < NoInter){
+        RightAround(255, ((Radius - 8) / (Radius + 8) * 255), 0);
+  
+  }
+
+      counterR = 0;
+      counterL = 0;
+  
+      detachInterrupt(EncL);
+      
+      allpinslow();
+
+  }
+
+}
+
+void MoLCircle(int Radius){
+
+  int NoInter;
+
+  if (Radius == 8){
+
+      NoInter = (2 * PI * 16 / circumference ) * 12;
+      attachInterrupt(digitalPinToInterrupt(EncR), docountR, RISING);
+
+      while (counterR < NoInter){
+        LeftAround(0, 255, 0);
+      
+  }
+
+      counterR = 0;
+      counterL = 0;
+  
+      
+      detachInterrupt(EncR);
+      
+      allpinslow();
+ 
+  
+  }
+
+  else if (Radius < 8){
+  
+    NoInter = (2 * PI * (8 + Radius) / circumference ) * 12;
+      attachInterrupt(digitalPinToInterrupt(EncR), docountR, RISING);
+
+      while (counterR < NoInter){
+        LeftAround((((8 - Radius) / (8 + Radius)) * 255), 255, 1);
+      
+  }
+
+      counterR = 0;
+      counterL = 0;
+  
+      detachInterrupt(EncR);
+      
+      allpinslow();
+ 
+  
+  }else{
+
+        NoInter = (2 * PI * (16 + Radius) / circumference ) * 12;
+      attachInterrupt(digitalPinToInterrupt(EncR), docountR, RISING);
+
+      while (counterR < NoInter){
+        RightAround(((Radius - 8) / (Radius + 8) * 255), 255, 0);
+  
+  }
+
+      counterR = 0;
+      counterL = 0;
+      
+      detachInterrupt(EncR);
+      
+      allpinslow();
+
+  }
+
+}
+
+void MoInfinity(int Radius){
+
+  MoRCircle(Radius);
+  MoLCircle(Radius);
+
 }
