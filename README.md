@@ -1,7 +1,7 @@
 # ASUMobiCarG36
 ASU project for a smart car
 
-To Watch a video for the car click [Here](https://youtu.be/Kc8boilaBuo)
+**Phase 1** video for the car click [Here](https://youtu.be/Kc8boilaBuo)
 
 ## Components
 
@@ -29,6 +29,13 @@ we have managed to program the car not only to be controlled by Bluetooth but wi
 ## Line Following (Phase 2)
 The Car Finished the proposed track as intended but with low speed which we are trying to improve right now.
 
-To watch the Car in the line following Mode Click [Here](https://www.youtube.com/watch?v=1ZHcCvf_tag&feature=youtu.be)
+**Phase 2** video for the Car **line following Mode** Click [Here](https://www.youtube.com/watch?v=1ZHcCvf_tag&feature=youtu.be)
 
 ![all text](https://github.com/MohamedAliRashad/ASUMobiCarG36/blob/master/Track.png)
+
+## Accurate Movement (Phase 3)
+
+We managed to redesign the car for Accurate Movement and used Speed Sensors (optical encoders) for distance Measurments.
+
+**Phase 3** video for the car Click [Here](https://youtu.be/vXAHt9X1ldg)
+
