@@ -35,7 +35,8 @@ The Car Finished the proposed track as intended but with low speed which we are 
 
 ## Accurate Movement (Phase 3)
 
-We managed to redesign the car for Accurate Movement and used Speed Sensors (optical encoders) for distance Measurments.
+We managed to redesign the car for Accurate Movement and not to lose any important features we previously had.
 
 **Phase 3** video for the car Click [Here](https://youtu.be/vXAHt9X1ldg)
+![all text](https://github.com/MohamedAliRashad/ASUMobiCarG36/blob/master/Designing/Car_V3_Light.jpg)
 
