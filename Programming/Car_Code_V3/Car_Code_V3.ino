@@ -38,6 +38,8 @@ void MoInfinity(int Radius);
 void MoRCircle(int Radius);
 void MoLCircle(int Radius);
 void MoSquare(int side);
+void LeftSafe(int Speed);
+void RightSafe(int Speed);
 
 //double SetPoint = 0, Input = 0, Output = 0;
 char Data = 'S'; // the data received
@@ -84,14 +86,14 @@ void setup()
 
 void loop() {
 
-   
+   /*
    if(digitalRead(Near)){
       Backward(MaxSpeed);
       delay(100);
       allpinslow();
       return;
     }
-
+  */
 
   if (Bluetooth.available()) //wait for data received
   { 
@@ -116,29 +118,45 @@ void Command(char Comm)
       }
 
       if (digitalRead(SS2_LEFT_IN) == 0 && digitalRead(SS3_CENTER) == 1 && digitalRead(SS4_RIGHT_IN) == 0) {
-            Forward(100);
+            Forward(MaxSpeed);
       }
 
       else if (digitalRead(SS2_LEFT_IN) == 1  && digitalRead(SS4_RIGHT_IN) == 0) {
   
         while (!(digitalRead(SS3_CENTER) == 1)) {
-            LeftSafe(100);
+            LeftSafe(round(MaxSpeed * 0.5));
        }
      }
       else if (digitalRead(SS2_LEFT_IN) == 0 && digitalRead(SS4_RIGHT_IN) == 1) {
 
-         while (!(digitalRead(SS3_CENTER) == 1)) {
-           RightSafe(100);
+        while (!(digitalRead(SS3_CENTER) == 1)) {
+            RightSafe(round(MaxSpeed * 0.5));
           }
-    
-    }
-    else{
 
-        Forward(100);
+      }
+     else if (digitalRead(SS1_LEFT_OUT) == 1 && digitalRead(SS5_RIGHT_OUT) == 0){
+      
+        while (!(digitalRead(SS3_CENTER) == 1)) {
+            LeftSafe(MaxSpeed);
+       }
+    }
+    else if (digitalRead(SS1_LEFT_OUT) == 0 && digitalRead(SS5_RIGHT_OUT) == 1){
+      
+        while (!(digitalRead(SS3_CENTER) == 1)) {
+            RightSafe(MaxSpeed);
+       }
+
+     }
+    else
+    {
+
+        Forward(MaxSpeed);
 
     } 
-  
+     
     }
+
+    break;
 
     case 'u':
     
