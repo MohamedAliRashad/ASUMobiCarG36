@@ -1,3 +1,0 @@
-control team :is dedicated for designing and simulation for hardware control elements
-
-team members: - Mostafa mohsen kamal & Mahmoud gamal deghadi & Mohamed emad gareb
