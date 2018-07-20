@@ -22,10 +22,10 @@ double PWMtoSpeed(int PWM);
 unsigned long StartTime;
 unsigned long CurrentTime;
 unsigned long duration;
-double distance;
-double hypotenuse;
-double RaidusOfCurvature;
-double Ratio;
+float distance;
+float hypotenuse;
+float RaidusOfCurvature;
+float Ratio;
 int Pwm2;
 bool FLAG;
 
@@ -50,12 +50,6 @@ void setup()
 
 void loop() {
 
-
-   if(digitalRead(Near)){
-      Backward(Pwm);
-      return;
-    }
-    
     Forward(Pwm);
 
     if(digitalRead(SS3_CENTER) == 1){
